@@ -68,6 +68,10 @@ $(function() {
 		.shiftHsl(0.41, null, null)		
 		.matchPalette(PALETTE)
 		.appendTo('#test2');
+		
+		var wolkske = cq(60,60);
+		cloud(wolkske);
+		wolkske.appendTo("#test2");
 	})		
 });
 
@@ -100,4 +104,20 @@ function noise(context,w,h) {
 			context.fillRect(i, j, 1, 1);
 		}
 	}
+}
+
+function cloud(context) {
+      context.beginPath();
+      context.moveTo(17, 8);
+      context.bezierCurveTo(13, 10, 13, 15, 23, 15);
+      context.bezierCurveTo(25, 18, 32, 18, 34, 15);
+      context.bezierCurveTo(42, 15, 42, 12, 39, 10);
+      context.bezierCurveTo(43, 4, 37, 3, 34, 5);
+      context.bezierCurveTo(32, 5, 25, 2, 25, 5);
+      context.bezierCurveTo(20, 5, 15, 2, 17, 8);
+      context.closePath();
+      context.fillStyle('#8ED6FF');
+      context.fill();
+      context.strokeStyle('black');
+      context.stroke();
 }
