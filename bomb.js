@@ -62,6 +62,9 @@ $(function() {
 		.resizePixel(3,3)
 		.appendTo("#test2");
 		
+		var noisy = cq(32,32);
+		noise(noisy,32,32);
+		noisy.appendTo('#test2');
 	})		
 });
 
@@ -86,3 +89,12 @@ function drawBrick(c, x, y, w, h, fillC) {
 	.strokeStyle("#000000").strokeRect(x,y,w,h)
 }
 
+function noise(context,w,h) {
+	for(i=0;i<w;i++) {
+		for(j=0;j<h;j++) {			
+			var num = Math.floor(Math.random()*255)
+			context.fillStyle("rgb(" + num + "," + num + "," + num + ")");
+			context.fillRect(i, j, 1, 1);
+		}
+	}
+}
