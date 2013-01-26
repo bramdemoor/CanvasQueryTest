@@ -64,7 +64,10 @@ $(function() {
 		
 		var noisy = cq(32,32);
 		noise(noisy,32,32);
-		noisy.appendTo('#test2');
+		noisy
+		.shiftHsl(0.41, null, null)		
+		.matchPalette(PALETTE)
+		.appendTo('#test2');
 	})		
 });
 
@@ -92,8 +95,8 @@ function drawBrick(c, x, y, w, h, fillC) {
 function noise(context,w,h) {
 	for(i=0;i<w;i++) {
 		for(j=0;j<h;j++) {			
-			var num = Math.floor(Math.random()*255)
-			context.fillStyle("rgb(" + num + "," + num + "," + num + ")");
+			var num = 128 + Math.floor(Math.random()*56)
+			context.fillStyle("rgb(" + num + "," + 0 + "," + 0 + ")");
 			context.fillRect(i, j, 1, 1);
 		}
 	}
