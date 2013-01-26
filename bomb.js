@@ -15,6 +15,7 @@ $(function() {
   var imgSpark = l("input/spark.png");
   var imgOcto = l("input/octolegs.png");
   var imgWeapon = l("input/crazyweapon.png");
+  var imgWood = l("input/wood-tex.png");
   
 	simploader(function() {	
 		cq(32,32)
@@ -28,6 +29,11 @@ $(function() {
 		cq(imgPistol).matchPalette(PALETTE).appendTo("#test2");	
 		cq(imgWeapon).matchPalette(PALETTE).appendTo("#test2");	
 		cq(imgBlood).matchPalette(PALETTE).appendTo("#test2");	
+		cq(15,18)
+			.drawImage(imgWood,0,0)
+			.drawImage(imgWood,0,6)
+			.drawImage(imgWood,0,12)
+			.appendTo("#test2");	
 
 		cq(20,20)
 			.beginPath().strokeStyle("#000000").arc(10,10,8,0,Math.PI*2,true).closePath().stroke()										
@@ -39,23 +45,35 @@ $(function() {
 			.matchPalette(PALETTE)
 			.appendTo("#test2");
 			
-		var brickWall = cq(32,32);
-		var brickWidth = 8;
-		var brickHeight = 6;
-		for(var y=0; y<=32; y+=brickHeight) {
-			var r = (y/brickHeight)%2;
-			var rowOffset = r > 0 ? -(brickWidth/2) : 0;		
-			for(var x=0; x<=32; x+=brickWidth) {
-				drawBrick(brickWall,x + rowOffset,y,brickWidth,brickHeight);	
-			}
-		}
-		brickWall.matchPalette(PALETTE).appendTo("#test2");
+		drawWall("#669900").appendTo("#test2");
+		drawWall("#3A1D00").appendTo("#test2");
+		
+		var test = cq(16,16);
+		drawBrick(test,2,2,8,6, "#669900")
+		.resizePixel(3,3)
+		.appendTo("#test2");
+		
 	})		
 });
 
-function drawBrick(c, x, y, w, h) {
+function drawWall(fillC) {
+	var brickWall = cq(32,32);
+	var brickWidth = 8;
+	var brickHeight = 6;
+	for(var y=0; y<=32; y+=brickHeight) {
+		var r = (y/brickHeight)%2;
+		var rowOffset = r > 0 ? -(brickWidth/2) : 0;		
+		for(var x=0; x<=32; x+=brickWidth) {
+			drawBrick(brickWall,x + rowOffset,y,brickWidth,brickHeight, fillC);	
+		}
+	}
+	brickWall.matchPalette(PALETTE);
+	return brickWall;
+}
+
+function drawBrick(c, x, y, w, h, fillC) {
 	return c
-	.fillStyle("#AAAAAA").fillRect(x,y,w,h)
-	.strokeStyle("#000000").strokeRect(x,y,w+1,h+1)
+	.fillStyle(fillC).fillRect(x,y,w,h)
+	.strokeStyle("#000000").strokeRect(x,y,w,h)
 }
 
