@@ -40,22 +40,22 @@ $(function() {
 			.appendTo("#test2");
 			
 		var brickWall = cq(32,32);
-		
-		for(var y=0; y<32; y+=6) {
-			var r = (y/6)%2;
-			var rowOffset = r > 0 ? -4 : 0;
-		
-			for(var x=0; x<32; x+=6) {
-				drawBrick(brickWall,x + rowOffset,y);	
+		var brickWidth = 8;
+		var brickHeight = 6;
+		for(var y=0; y<=32; y+=brickHeight) {
+			var r = (y/brickHeight)%2;
+			var rowOffset = r > 0 ? -(brickWidth/2) : 0;		
+			for(var x=0; x<=32; x+=brickWidth) {
+				drawBrick(brickWall,x + rowOffset,y,brickWidth,brickHeight);	
 			}
 		}
 		brickWall.matchPalette(PALETTE).appendTo("#test2");
 	})		
 });
 
-function drawBrick(c, x, y) {
+function drawBrick(c, x, y, w, h) {
 	return c
-	.fillStyle("#AAAAAA").fillRect(x,y,8,6)
-	.strokeStyle("#000000").strokeRect(x,y,8,6)
+	.fillStyle("#AAAAAA").fillRect(x,y,w,h)
+	.strokeStyle("#000000").strokeRect(x,y,w+1,h+1)
 }
 
