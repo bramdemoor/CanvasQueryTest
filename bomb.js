@@ -16,6 +16,8 @@ $(function() {
   var imgOcto = l("input/octolegs.png");
   var imgWeapon = l("input/crazyweapon.png");
   var imgWood = l("input/wood-tex.png");
+  var imgGrass = l("input/grass.png");
+  var imgMud = l("input/mud.png");
   
 	simploader(function() {	
 		cq(32,32)
@@ -27,8 +29,15 @@ $(function() {
 		.appendTo("#test2");
 		
 		cq(imgPistol).matchPalette(PALETTE).appendTo("#test2");	
+		cq(imgPistol).matchPalette(PALETTE).resizePixel(3,3).appendTo("#test2");	
 		cq(imgWeapon).matchPalette(PALETTE).appendTo("#test2");	
-		cq(imgBlood).matchPalette(PALETTE).appendTo("#test2");	
+		cq(imgBlood).matchPalette(PALETTE).appendTo("#test2");
+		
+		cq(32,32)
+			.drawImage(imgMud,0,0)
+			.drawImage(imgGrass,0,0)
+			.appendTo("#test2");
+		
 		cq(15,18)
 			.drawImage(imgWood,0,0)
 			.drawImage(imgWood,0,6)
