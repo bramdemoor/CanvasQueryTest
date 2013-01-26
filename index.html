@@ -5,60 +5,8 @@
 </head>
 <body>
 	<canvas id="myCanvas" width="640" height="640" />
-	<script type="text/javascript">
-		$(function() {
-			var canvas = document.getElementById("myCanvas");
-		
-			var theCq = cq(canvas);
-			
-			theCq			
-					.fillStyle("#FFFFFF")
-					.fillRect(0, 0, 640, 480)	
-				
-					.beginPath()
-					.strokeStyle("#000000")
-					.arc(10,10,8,0,Math.PI*2,true)
-					.closePath()			
-					.stroke()			
-					
-					.beginPath()
-					.strokeStyle("#303030")
-					.arc(10,10,7,0,Math.PI*2,true)
-					.closePath()
-					.stroke()
-					
-					.beginPath()
-					.fillStyle("#202020")
-					.arc(10,10,6,0,Math.PI*2,true)
-					.closePath()
-					.fill()	
-
-					.beginPath()
-					.strokeStyle("#565653")					
-					.arc(7,7,2,0,Math.PI*2,true)
-					.closePath()
-					.stroke()
-					
-					.beginPath()
-					.fillStyle("#70707A")
-					.arc(7,7,1,0,Math.PI*2,true)
-					.closePath()
-					.fill()					
-				;
-				
-				
-				var cat = new Image();
-			  cat.src = "input/spark.png";
-			  cat.onload = function() {
-				theCq.drawImage(cat,14,-1);			
-			  };
-				
-				
-				
-		});
-	
-
-	</script>
+	<script type="text/javascript" src="bomb.js"></script>
+	<script type="text/javascript" src="character.js"></script>
 </body>
 </html>
 
