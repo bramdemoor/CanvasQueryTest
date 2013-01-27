@@ -84,6 +84,17 @@ $(function() {
 		var wolkske = cq(60,60);
 		cloud(wolkske);
 		wolkske.appendTo("#test2");
+		
+		var pp = cq(100,100);
+		
+		var pattern = pp.context.createPattern(imgMud, 'repeat');
+		
+		pp
+        .rect(0, 0, 100, 100)
+        .fillStyle(pattern)
+        .fill()    
+        .appendTo('#test2');
+		
 	})		
 });
 
