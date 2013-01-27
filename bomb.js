@@ -18,6 +18,7 @@ $(function() {
   var imgWood = l("input/wood-tex.png");
   var imgGrass = l("input/grass.png");
   var imgMud = l("input/mud.png");
+  var imgParticle = l("input/particleTexture.png");
   
 	simploader(function() {	
 		cq(32,32)
@@ -32,6 +33,7 @@ $(function() {
 		cq(imgPistol).matchPalette(PALETTE).resizePixel(3,3).appendTo("#test2");	
 		cq(imgWeapon).matchPalette(PALETTE).appendTo("#test2");	
 		cq(imgBlood).matchPalette(PALETTE).appendTo("#test2");
+		cq(imgParticle).scale(0.5,0.5).shiftHsl(0.41, 0.6, null).appendTo("#test2");
 		
 		cq(32,32)
 			.drawImage(imgMud,0,0)
@@ -58,7 +60,7 @@ $(function() {
 		drawWall("#3A1D00").appendTo("#test2");
 		
 		var test = cq(16,16);
-		drawBrick(test,2,2,8,6, "#669900")
+		drawBrick(test,2,2,8,6, randomColor())
 		.resizePixel(3,3)
 		.appendTo("#test2");
 		
@@ -67,7 +69,7 @@ $(function() {
 		noisy
 		.shiftHsl(0.41, null, null)		
 		.matchPalette(PALETTE)
-		.appendTo('#test2');
+		.appendTo('#test2');		
 		
 		var wolkske = cq(60,60);
 		cloud(wolkske);
@@ -120,4 +122,8 @@ function cloud(context) {
       context.fill();
       context.strokeStyle('black');
       context.stroke();
+}
+
+function randomColor() {
+	return '#'+(Math.random()*0xFFFFFF<<0).toString(16);
 }
