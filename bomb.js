@@ -19,6 +19,7 @@ $(function() {
   var imgGrass = l("input/grass.png");
   var imgMud = l("input/mud.png");
   var imgParticle = l("input/particleTexture.png");
+  var imgNeon = l("input/neon.png");
   
 	simploader(function() {	
 		cq(32,32)
@@ -33,6 +34,7 @@ $(function() {
 		cq(imgPistol).matchPalette(PALETTE).resizePixel(3,3).appendTo("#test2");	
 		cq(imgWeapon).matchPalette(PALETTE).appendTo("#test2");	
 		cq(imgBlood).matchPalette(PALETTE).appendTo("#test2");
+		cq(imgNeon).shiftHsl(0.41, 1, 0.2).appendTo("#test2");
 		cq(imgParticle).scale(0.5,0.5).shiftHsl(0.41, 0.6, null).appendTo("#test2");
 		
 		cq(32,32)
