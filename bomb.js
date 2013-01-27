@@ -46,7 +46,15 @@ $(function() {
 			.drawImage(imgWood,0,0)
 			.drawImage(imgWood,0,6)
 			.drawImage(imgWood,0,12)
-			.appendTo("#test2");	
+			.appendTo("#test2");
+
+		// Motion trail
+		cq(32,16)
+			.fillStyle("#999999").fillRect(9,0,4,2)
+			.fillStyle("#666666").fillRect(12,0,4,2)
+			.fillStyle("#000000").fillRect(15,0,4,2)			
+			.resizePixel(3,3).appendTo("#test2");
+			
 
 		cq(20,20)
 			.beginPath().strokeStyle("#000000").arc(10,10,8,0,Math.PI*2,true).closePath().stroke()										
